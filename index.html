@@ -3,532 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dore Kundura | Son Moda Çocuk Ürünleri</title>
+    <title>Dore Kundura - Google Yorum Entegreli Sürüm</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+        /* Genel Tasarım */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #fff; color: #222; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
 
-        body {
-            background-color: #ffffff;
-            color: #333333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+        /* Üst Bar */
+        .top-bar { background-color: #fcfcfc; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 11px; color: #777; border-bottom: 1px solid #eee; }
+        .top-bar a { color: #ff6600; font-weight: 600; }
+        .top-links span { margin-left: 15px; cursor: pointer; }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+        /* Header */
+        header { padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; background: #fff; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 32px; font-weight: 900; color: #ff6600; letter-spacing: 1px; cursor: pointer; }
+        .main-cats { display: flex; gap: 20px; }
+        .main-cats a { color: #111; font-weight: 700; font-size: 14px; text-transform: uppercase; }
+        .search-container { flex: 1; max-width: 450px; margin: 0 25px; }
+        .search-container input { width: 100%; padding: 10px 15px; border: 1px solid #ff6600; border-radius: 4px; font-size: 13px; outline: none; }
+        .user-menu { display: flex; gap: 20px; font-size: 13px; font-weight: 600; color: #333; }
+        .user-menu span { cursor: pointer; transition: color 0.2s; }
+        .user-menu span:hover { color: #ff6600; }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        /* Kategori Navigasyonu */
+        .sub-nav { display: flex; justify-content: space-between; padding: 12px 5%; background: #fff; border-bottom: 1px solid #eee; }
+        .sub-nav a { color: #333; font-weight: 600; font-size: 13px; }
 
-        .top-utility-bar {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e6e6e6;
-            font-size: 11px;
-            color: #666666;
-            padding: 10px 0;
-        }
+        /* Görünüm Bölümleri */
+        .view-section { display: block; }
+        .hidden { display: none !important; }
 
-        .utility-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .app-download strong {
-            color: #ff6000;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .utility-links {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .utility-links a {
-            margin-left: 20px;
-            cursor: pointer;
-        }
-
-        .utility-links a:hover {
-            color: #ff6000;
-        }
-
-        .main-header {
-            background-color: #ffffff;
-            padding: 25px 0 15px 0;
-        }
-
-        .header-grid {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .logo-and-cats {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 38px;
-            font-weight: 900;
-            color: #ff6000;
-            letter-spacing: -1.5px;
-        }
-
-        .gender-nav {
-            display: flex;
-            gap: 15px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .gender-nav a {
-            padding: 5px 8px;
-            color: #000000;
-            cursor: pointer;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 280px;
-            max-width: 480px;
-            margin: 0 10px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ff6000;
-            border-radius: 4px;
-            background-color: #fafafa;
-            outline: none;
-            font-size: 13px;
-            color: #999999;
-        }
-
-        .user-actions {
-            display: flex;
-            gap: 25px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #333333;
-            flex-wrap: wrap;
-        }
+        /* Markalar Paneli */
+        .brands-section { background-color: #ff6600; padding: 30px 5%; }
+        .brands-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .brand-card { background-color: #fff; padding: 20px 10px; text-align: center; border-radius: 6px; font-size: 16px; font-weight: 800; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; display: flex; align-items: center; justify-content: center; height: 70px; transition: transform 0.2s; }
+        .brand-card:hover { transform: scale(1.03); }
         
-        .user-actions span {
-            cursor: pointer;
-        }
+        /* Marka Stilleri */
+        .kinetix { color: #d61c22; font-style: italic; }
+        .lumberjack { color: #000; border: 1px solid #000; padding: 2px 5px; font-weight: 500; }
+        .frozen { color: #29b6f6; }
+        .spiderman { color: #e53935; font-family: 'Arial Black', sans-serif; }
+        .polaris { color: #b71c1c; font-family: serif; }
+        .lescon { color: #000; font-style: italic; }
+        .voyager { color: #2e7d32; }
+        .vicco { color: #e91e63; }
+        .pepino { color: #00bfa5; }
+        .jump { color: #ff7043; font-style: italic; }
 
-        .sub-nav-bar {
-            background-color: #ffffff;
-            border-top: 1px solid #f1f1f1;
-            border-bottom: 1px solid #dddddd;
-            overflow-x: auto;
-        }
+        /* Ürün Listeleme / Katalog */
+        .catalog-container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        .catalog-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 2px solid #ff6600; padding-bottom: 10px; }
+        .catalog-header h2 { font-size: 22px; color: #333; text-transform: uppercase; }
+        .back-btn { background: #333; color: #fff; padding: 8px 15px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .product-card { border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .product-img-placeholder { height: 180px; background-color: #f7f7f7; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-weight: bold; margin-bottom: 15px; font-size: 14px; }
+        .product-title { font-size: 14px; font-weight: 600; color: #44px; margin-bottom: 8px; height: 38px; overflow: hidden; }
+        .product-rating { color: #ffb500; font-size: 12px; margin-bottom: 8px; }
+        .product-price { font-size: 16px; font-weight: 800; color: #ff6600; }
 
-        .sub-nav-links {
-            display: flex;
-            justify-content: space-between;
-            padding: 13px 0;
-            font-size: 13px;
-            font-weight: bold;
-            color: #222222;
-            min-width: 600px; /* Mobilde taşma yerine kaydırma barı sunar */
-        }
+        /* Giriş / Üye Ol Modülü */
+        .auth-container { max-width: 400px; margin: 60px auto; padding: 0 20px; }
+        .auth-tabs { display: flex; background: #fff; border: 1px solid #ddd; border-bottom: none; }
+        .auth-tab { flex: 1; padding: 15px; text-align: center; background: none; border: none; font-size: 15px; font-weight: 700; cursor: pointer; color: #999; }
+        .auth-tab.active { color: #ff6600; border-bottom: 3px solid #ff6600; background: #fff; }
+        .auth-box { background: #fff; padding: 30px 20px; border: 1px solid #ddd; border-radius: 0 0 6px 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 15px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; outline: none; font-size: 14px; }
+        .auth-btn { width: 100%; padding: 14px; background: #ff6600; color: #fff; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; text-transform: uppercase; }
 
-        .sub-nav-links a:hover {
-            color: #ff6000;
-        }
+        /* Google Yorumları Bölümü (YENİ) */
+        .google-reviews-section { padding: 50px 5%; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .google-header-box { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .google-logo-badge { font-weight: 900; font-size: 24px; color: #4285F4; background: #f8fafc; padding: 10px 20px; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 5px; }
+        .google-logo-badge span:nth-child(2) { color: #EA4335; }
+        .google-logo-badge span:nth-child(3) { color: #FBBC05; }
+        .google-logo-badge span:nth-child(4) { color: #34A853; }
+        .google-stars { color: #ffb500; font-size: 22px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .google-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 25px; }
+        .google-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; background: #fff; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
+        .google-user { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .google-user-avatar { width: 35px; height: 35px; background: #ff6600; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+        .google-user-info h5 { font-size: 14px; color: #333; font-weight: 700; }
+        .google-user-info span { font-size: 11px; color: #aaa; }
+        .google-card-stars { color: #ffb500; font-size: 14px; margin-bottom: 10px; }
+        .google-card-text { font-size: 13px; color: #4a5568; line-height: 1.6; font-style: italic; }
+        
+        /* Google İnceleme Bırakma Butonları */
+        .review-action-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .write-review-btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #4285F4; color: #4285F4 !important; font-weight: 700; padding: 10px 20px; border-radius: 20px; font-size: 13px; background: #fff; transition: background 0.2s; }
+        .write-review-btn:hover { background: #f0f6ff; }
 
-        .brands-section {
-            background-color: #ff6000;
-            padding: 40px 0;
-        }
+        /* Mağazalar ve İletişim */
+        .info-section { padding: 50px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 30px; }
+        .section-header h3 { color: #ff6600; font-size: 18px; font-weight: 700; }
+        .stores-container { display: flex; gap: 25px; }
+        .store-card { flex: 1; background-color: #fafafa; border: 1px solid #eaeaea; border-radius: 6px; padding: 25px; }
+        .store-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .store-card p { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 20px; }
+        .direction-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #ff6600; color: #fff !important; padding: 12px 20px; font-size: 13px; font-weight: 700; border-radius: 4px; transition: background-color 0.2s; width: auto; cursor: pointer; }
 
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            width: 100%;
-        }
+        footer { text-align: center; padding: 30px 20px; font-size: 12px; color: #aaa; border-top: 1px solid #eee; background-color: #fafafa; }
+        .insta-footer-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff !important; padding: 8px 16px; border-radius: 20px; font-weight: 600; margin-bottom: 15px; font-size: 13px; }
 
-        .brand-card {
-            background: #ffffff;
-            padding: 10px;
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 90px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .brand-logo-svg {
-            width: 100%;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .reviews-section {
-            background-color: #fdfdfd;
-            padding: 50px 0;
-            border-top: 1px solid #eaeaea;
-        }
-
-        .reviews-title {
-            font-size: 22px;
-            font-weight: bold;
-            color: #222222;
-            margin-bottom: 25px;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .review-card {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 6px;
-            border: 1px solid #f0f0f0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .review-stars {
-            color: #ffc107;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .review-text {
-            font-size: 13.5px;
-            color: #555555;
-            line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .review-author {
-            font-size: 12.5px;
-            font-weight: bold;
-            color: #222222;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .review-branch {
-            font-weight: normal;
-            color: #888888;
-            font-size: 11.5px;
-        }
-
-        .site-footer {
-            background-color: #f8f9fa;
-            border-top: 1px solid #e6e6e6;
-            padding: 40px 0 20px 0;
-            margin-top: auto;
-        }
-
-        .footer-header-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .footer-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ff6000;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-contacts {
-            font-size: 14px;
-            font-weight: bold;
-            color: #444444;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .footer-contacts span, .footer-contacts a {
-            color: #ff6000;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .instagram-custom-icon {
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            border-radius: 6px;
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-            transition: transform 0.2s;
-            margin-left: 20px;
-        }
-
-        .instagram-custom-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .instagram-custom-icon::before {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            border: 1.5px solid #ffffff;
-            border-radius: 4px;
-        }
-
-        .instagram-custom-icon::after {
-            content: '';
-            position: absolute;
-            top: 7px;
-            left: 7px;
-            width: 4px;
-            height: 4px;
-            border: 1.5px solid #ffffff;
-            border-radius: 50%;
-        }
-
-        .instagram-dot {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            width: 2px;
-            height: 2px;
-            background-color: #ffffff;
-            border-radius: 50%;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        /* 📱 MOBİL UYUMLULUK EK CSS KODLARI (MEDIA QUERIES) */
-        @media (max-width: 992px) {
-            .brands-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .reviews-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        /* 📱 MOBİL UYUMLULUK */
         @media (max-width: 768px) {
-            .header-grid {
-                flex-direction: column;
-                text-align: center;
-            }
-            .logo-and-cats {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .search-box {
-                width: 100%;
-                margin: 10px 0;
-            }
-            .user-actions {
-                justify-content: center;
-                width: 100%;
-            }
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .utility-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .utility-links {
-                justify-content: center;
-                margin-top: 5px;
-            }
-            .utility-links a:first-child {
-                margin-left: 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brands-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .logo {
-                font-size: 32px;
-            }
+            header { flex-direction: column; gap: 15px; }
+            .main-cats, .search-container, .user-menu { width: 100%; justify-content: center; text-align: center; }
+            .sub-nav { overflow-x: auto; white-space: nowrap; gap: 15px; justify-content: flex-start; }
+            .sub-nav::-webkit-scrollbar { display: none; }
+            .brands-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .google-grid { grid-template-columns: 1fr; gap: 15px; }
+            .stores-container { flex-direction: column; gap: 15px; }
+            .direction-btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Üst Yardımcı Bar -->
-    <div class="top-utility-bar">
-        <div class="container utility-content">
-            <div class="app-download">
-                Dore Kundura Mobil Uygulamasını <strong>İndirin</strong>
+    <!-- Üst Bar -->
+    <div class="top-bar">
+        <div>Mobil Uygulamayı <a href="#">Hemen İndir</a></div>
+        <div class="top-links">
+            <span>Sipariş Takibi</span>
+            <span>Kolay İade</span>
+            <span>Müşteri Hizmetleri</span>
+        </div>
+    </div>
+
+    <!-- Menü Başlığı -->
+    <header>
+        <div class="logo" onclick="showView('home')">DORE</div>
+        <div class="main-cats">
+            <a href="#" onclick="showView('home')">Kadın</a>
+            <a href="#" onclick="showView('home')">Erkek</a>
+            <a href="#" onclick="showView('home')">Çocuk</a>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Aradığınız ürün veya markayı yazınız...">
+        </div>
+        <div class="user-menu">
+            <span onclick="showView('auth')">Giriş Yap / Üye Ol</span>
+            <span onclick="showView('home')">Sepetim</span>
+        </div>
+    </header>
+
+    <nav class="sub-nav">
+        <a href="#">Ayakkabı</a>
+        <a href="#">Spor</a>
+        <a href="#">Çanta</a>
+        <a href="#">Lisanslı Ürünler</a>
+        <a href="#" onclick="showView('home')">Markalar</a>
+        <a href="#">Outlet</a>
+    </nav>
+
+    <!-- GÖRÜNÜM 1: ANA SAYFA -->
+    <div id="home-view" class="view-section">
+        <section class="brands-section">
+            <div class="brands-grid">
+                <div class="brand-card kinetix" onclick="loadCatalog('Kinetix')">Kinetix</div>
+                <div class="brand-card" onclick="loadCatalog('Lumberjack')"><span class="lumberjack">LUMBERJACK</span></div>
+                <div class="brand-card frozen" onclick="loadCatalog('Frozen')">Frozen</div>
+                <div class="brand-card spiderman" onclick="loadCatalog('Spider-Man')">SPIDER-MAN</div>
+                <div class="brand-card polaris" onclick="loadCatalog('Polaris')">POLARIS</div>
+                <div class="brand-card lescon" onclick="loadCatalog('Lescon')">LESCON</div>
+                <div class="brand-card voyager" onclick="loadCatalog('Voyager')">VOYAGER</div>
+                <div class="brand-card vicco" onclick="loadCatalog('Vicco')">VICCO</div>
+                <div class="brand-card pepino" onclick="loadCatalog('Pepino')">PEPINO</div>
+                <div class="brand-card jump" onclick="loadCatalog('Jump')">JUMP</div>
             </div>
-            <div class="utility-links">
-                <a href="#">Kampanyalar</a>
-                <a href="#">Sipariş Takibi</a>
-                <a href="#">Yardım & Destek</a>
+        </section>
+
+        <!-- YENİ: Google Müşteri Yorumları Widget Alanı -->
+        <section class="google-reviews-section">
+            <div class="google-header-box">
+                <div class="google-logo-badge">
+                    <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span> Değerlendirmeleri
+                </div>
+                <div class="google-stars">
+                    ⭐ 4.0 / 5.0 <span>(Müşteri Memnuniyeti)</span>
+                </div>
+            </div>
+
+            <div class="google-grid">
+                <!-- Yorum 1 -->
+                <div class="google-card">
+                    <div class="google-user">
+                        <div class="google-user-avatar">A</div>
+                        <div class="google-user-info">
+                            <h5>Ahmet Yılmaz</h5>
+                            <span>2 hafta önce</span>
+                        </div>
+                    </div>
+                    <div class="google-card-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="google-card-text">"Gebze şubesinden çocuk ayakkabısı aldık. Çalışanlar çok ilgili, çeşit bol ve kalitesi mükemmel. Kesinlikle tavsiye ederim."</p>
+                </div>
+                <!-- Yorum 2 -->
+                <div class="google-card">
+                    <div class="google-user">
+                        <div class="google-user-avatar">M</div>
+                        <div class="google-user-info">
+                            <h5>Merve Kaya</h5>
+                            <span>1 ay önce</span>
+                        </div>
+                    </div>
+                    <div class="google-card-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="google-card-text">"Çayırova şubesindeki ilk adım ayakkabısı modellerine bayıldık. Yumuşacık ve hakiki deri tasarımlar var. Çok memnun kaldık."</p>
+                </div>
+                <!-- Yorum 3 -->
+                <div class="google-card">
+                    <div class="google-user">
+                        <div class="google-user-avatar">Z</div>
+                        <div class="google-user-info">
+                            <h5>Zeynep Çetin</h5>
+                            <span>3 gün önce</span>
+                        </div>
+                    </div>
+                    <div class="google-card-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="google-card-text">"Instagram üzerinden görüp mağazaya gittim. Numara değişimi ve ilgilerinden ötürü dükkan sahiplerine çok teşekkür ederim. Güvenilir esnaf."</p>
+                </div>
+            </div>
+
+            <!-- Canlı Google Yorum Bırakma Aksiyon Butonları -->
+            <div class="review-action-container">
+                <a href="https://google.comsmet+Paşa+Caddesi+No+8+Kocaeli" target="_blank" class="write-review-btn">
+                    ✍️ Gebze Şubesi İçin Google Yorumu Yaz
+                </a>
+                <a href="https://google.com" target="_blank" class="write-review-btn">
+                    ✍️ Çayırova Şubesi İçin Google Yorumu Yaz
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- GÖRÜNÜM 2: ÜRÜN KATALOĞU -->
+    <div id="catalog-view" class="view-section hidden">
+        <div class="catalog-container">
+            <div class="catalog-header">
+                <h2 id="catalog-title">Marka Ürünleri</h2>
+                <div class="back-btn" onclick="showView('home')">← Ana Sayfaya Dön</div>
+            </div>
+            <div class="products-grid" id="products-list"></div>
+        </div>
+    </div>
+
+    <!-- GÖRÜNÜM 3: GİRİŞ YAP / ÜYE OL -->
+    <div id="auth-view" class="view-section hidden">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tab-login" onclick="toggleAuth('login')">Giriş Yap</button>
+                <button class="auth-tab" id="tab-register" onclick="toggleAuth('register')">Üye Ol</button>
+            </div>
+            <div class="auth-box">
+                <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+                    <div class="form-group">
+                        <input type="text" id="auth-username" placeholder="E-Posta Adresi veya Telefon" required>
+                    </div>
+                    <div class="form-group id-register-only hidden">
+                        <input type="password" id="auth-password" placeholder="Şifre Oluşturun">
+                    </div>
+                    <button type="submit" class="auth-btn" id="auth-submit-text">Giriş Yap</button>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- Ana Header Bölümü -->
-    <header class="main-header">
-        <div class="container header-grid">
-            <div class="logo-and-cats">
-                <div class="logo">DORE</div>
-                <nav class="gender-nav">
-                    <a href="#">KIZ ÇOCUK</a>
-                    <a href="#">ERKEK ÇOCUK</a>
-                    <a href="#">BEBEK</a>
-                </nav>
-            </div>
-            
-            <div class="search-box">
-                <input type="text" placeholder="Aradığınız ürün, kategori veya markayı yazınız...">
-            </div>
-
-            <div class="user-actions">
-                <span>Giriş Yap</span>
-                <span>Favorilerim</span>
-                <span>Sepetim</span>
-            </div>
+    <!-- Mağazalar ve İletişim Detayları -->
+    <section class="info-section">
+        <div class="section-header">
+            <h3>MAĞAZALARIMIZ VE İLETİŞİM</h3>
+            <div>E-posta: <a href="mailto:dorekundura@gmail.com" style="color: #ff6600; font-weight: bold;">dorekundura@gmail.com</a></div>
         </div>
-    </header>
-
-    <!-- Alt Navigasyon Barı -->
-    <nav class="sub-nav-bar">
-        <div class="container sub-nav-links">
-            <a href="#">Ayakkabı</a>
-            <a href="#">Giyim</a>
-            <a href="#">Oyuncak</a>
-            <a href="#">Bakım & Sağlık</a>
-            <a href="#">Beslenme</a>
-            <a href="#">Oda & Ev</a>
-            <a href="#">Fırsat Ürünleri</a>
-        </div>
-    </nav>
-
-    <!-- Markalar Bölümü -->
-    <section class="brands-section">
-        <div class="container">
-            <div class="brands-grid">
-                <div class="brand-card"><div class="brand-logo-svg"><strong>Vicco</strong></div></div>
-                <div class="brand-card"><div class="brand-logo-svg"><strong>Kinetix</strong></div></div>
-                <div class="brand-card"><div class="brand-logo-svg"><strong>adidas</strong></div></div>
-                <div class="brand-card"><div class="brand-logo-svg"><strong>Nike</strong></div></div>
-                <div class="brand-card"><div class="brand-logo-svg"><strong>Puma</strong></div></div>
+        <div class="stores-container">
+            <div class="store-card">
+                <h4>Dore Kundura Çayırova Şubesi</h4>
+                <p>Çayırova Mh. Fatih Cd. No: 124<br>Çayırova / Kocaeli</p>
+                <a href="https://google.com" target="_blank" class="direction-btn">🚗 Yol Tarifi Al</a>
+            </div>
+            <div class="store-card">
+                <h4>Dore Kundura Gebze Şubesi</h4>
+                <p>Hacıhalil Mh. İsmetpaşa Cd. No: 8 Yeniçarşı<br>Gebze / Kocaeli</p>
+                <a href="https://google.comsmet+Paşa+Caddesi+No+8+Kocaeli" target="_blank" class="direction-btn">🚗 Yol Tarifi Al</a>
             </div>
         </div>
     </section>
 
-    <!-- Müşteri Yorumları Bölümü -->
-    <section class="reviews-section">
-        <div class="container">
-            <h2 class="reviews-title">Müşterilerimiz Ne Diyor?</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Kızım için aldığım ilk adım ayakkabısı çok hızlı ulaştı. Kalitesi ve yumuşaklığı tam aradığımız gibi. Çok memnun kaldık."</p>
-                    </div>
-                    <div class="review-author">
-                        A*** Y***
-                        <span class="review-branch">İstanbul</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Oğluma aldığım spor ayakkabı tam numara oldu. Paketleme çok özenliydi. Alışverişlerimizin devamı gelecek kesinlikle."</p>
-                    </div>
-                    <div class="review-author">
-                        M*** K***
-                        <span class="review-branch">Ankara</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Müşteri hizmetleri çok ilgiliydi, numara değişimi konusunda hemen yardımcı oldular. Güvenle alışveriş yapabilirsiniz."</p>
-                    </div>
-                    <div class="review-author">
-                        Z*** Ç***
-                        <span class="review-branch">İzmir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Alanı -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-header-area">
-                <div class="footer-title">Dore Kundura</div>
-                <div class="footer-contacts">
-                    <span>Destek Hattı: 0850 XXX XX XX</span>
-                    <a href="#">Bize Ulaşın</a>
-                    <div class="instagram-custom-icon"><div class="instagram-dot"></div></div>
-                </div>
-            </div>
-            <div class="footer-grid">
-                <div>
-                    <p style="font-size:13px; color:#666; line-height:1.5;">© 2026 Dore Kundura. Tüm hakları saklıdır. Çocuklarınız için en sağlıklı ve şık ürünler.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Alt Bilgi ve Canlı Instagram Linki -->
+    <footer>
+        <a href="https://www.instagram.com/dorekundura/" target="_blank" class="insta-footer-btn">
+            📸 Instagram'da Bizi Takip Edin
+        </a>
+        <p>© 2026 DORE KUNDURA Mağazacılık A.Ş. Tüm Hakları Saklıdır.</p>
     </footer>
 
+    <script>
+        function showView(viewName) {
+            document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden'));
+            document.getElementById(viewName + '-view').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        let currentAuthMode = 'login';
+        function toggleAuth(mode) {
+            currentAuthMode = mode;
+            const loginTab = document.getElementById('tab-login');
+            const registerTab = document.getElementById('tab-register');
+            const registerField = document.querySelector('.id-register-only');
+            const submitText = document.getElementById('auth-submit-text');
+
+            if (mode === 'login') {
+                loginTab.classList.add('active'); registerTab.classList.remove('active');
+                registerField.classList.add('hidden'); submitText.innerText = 'Giriş Yap';
+            } else {
+                registerTab.classList.add('active'); loginTab.classList.remove('active');
+                registerField.className = registerField.className.replace('hidden', '').trim(); submitText.innerText = 'Hesap Oluştur';
+            }
+        }
+
+        function handleAuthSubmit(event) {
+            event.preventDefault();
+            alert(currentAuthMode === 'login' ? `Başarıyla Giriş Yapıldı!` : `Kaydınız oluşturuldu!`);
+            showView('home');
+        }
+
+        function loadCatalog(brandName) {
+            document.getElementById('catalog-title').innerText = brandName + " Koleksiyonu";
+            const productsList = document.getElementById('products-list');
+            productsList.innerHTML = '';
+
+            for (let i = 1; i <= 4; i++) {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-img-placeholder">${brandName}</div>
+                    <div class="product-title">${brandName} Sezon Modeli v${i}</div>
+                    <div class="product-rating">★★★★★ (12)</div>
+                    <div class="product-price">${(399 + (i * 50))} TL</div>
+                `;
+                productsList.appendChild(productCard);
+            }
+            showView('catalog');
+        }
+    </script>
 </body>
 </html>
