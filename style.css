@@ -1,0 +1,263 @@
+/* Temel Sıfırlamalar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', 'Times New Roman', serif; /* Kundura tarzına uygun klasik font */
+}
+
+body {
+    background-color: #fcfbf7;
+    color: #1a1a1a;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Üst Yardımcı Bar */
+.top-utility-bar {
+    background-color: #111;
+    border-bottom: 1px solid #d4af37; /* Dore rengi çizgi */
+    font-size: 12px;
+    color: #bbb;
+    padding: 8px 0;
+}
+
+.utility-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-download strong {
+    color: #d4af37; /* Dore rengi */
+    cursor: pointer;
+}
+
+.utility-links a {
+    margin-left: 15px;
+}
+
+.utility-links a:hover {
+    color: #d4af37;
+}
+
+/* Ana Header */
+.main-header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.header-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-and-cats {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #111;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d4af37;
+    font-size: 16px;
+    display: block;
+    font-weight: normal;
+    letter-spacing: 4px;
+    margin-top: -4px;
+}
+
+.gender-nav {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.gender-nav a {
+    padding: 5px 10px;
+    letter-spacing: 1px;
+}
+
+.gender-nav a.active {
+    color: #d4af37;
+    border-bottom: 2px solid #d4af37;
+}
+
+/* Arama Çubuğu */
+.search-box {
+    flex: 1;
+    max-width: 450px;
+    margin: 0 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 0px; /* Klasik tasarım için keskin köşeler */
+    background-color: #fafafa;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Kullanıcı Menüsü */
+.user-actions {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Alt Kategori Menüsü */
+.sub-nav-bar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.sub-nav-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.sub-nav-links a:hover {
+    color: #d4af37;
+}
+
+/* Ana Banner Alanı */
+.hero-section {
+    background-color: #1c1c1c; /* Koyu lüks arka plan */
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid #d4af37;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.hero-image-side {
+    width: 50%;
+}
+
+.hero-image-side img {
+    width: 100%;
+    border: 2px solid #d4af37;
+    display: block;
+}
+
+.hero-text-side {
+    width: 45%;
+    color: #fff;
+}
+
+.campaign-title {
+    font-size: 42px;
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #d4af37;
+    color: #111;
+    padding: 14px 40px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #fff;
+    color: #d4af37;
+}
+
+/* Sağdaki İndirim Kartı */
+.coupon-badge {
+    position: absolute;
+    right: 15px;
+    background: #fff;
+    padding: 25px 20px;
+    border: 1px solid #d4af37;
+    width: 210px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    text-align: center;
+    font-size: 13px;
+}
+
+.coupon-text strong {
+    color: #d4af37;
+}
+
+.coupon-link {
+    display: block;
+    margin-top: 15px;
+    background: #111;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.coupon-link:hover {
+    background: #d4af37;
+}
+
+/* Markalar / Koleksiyonlar Alanı */
+.brands-section {
+    padding: 40px 0;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 15px;
+}
+
+.brand-card {
+    background: #fff;
+    padding: 25px 10px;
+    text-align: center;
+    border: 1px solid #e5e0d8;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+}
+
+.brand-card:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+    background-color: #faf8f5;
+}

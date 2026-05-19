@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dore Kundura | Son Moda Çocuk Ürünleri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top-utility-bar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e6e6e6;
+            font-size: 11px;
+            color: #666666;
+            padding: 10px 0;
+        }
+
+        .utility-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .app-download strong {
+            color: #ff6000;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .utility-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .utility-links a {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .utility-links a:hover {
+            color: #ff6000;
+        }
+
+        .main-header {
+            background-color: #ffffff;
+            padding: 25px 0 15px 0;
+        }
+
+        .header-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-and-cats {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .logo {
+            font-size: 38px;
+            font-weight: 900;
+            color: #ff6000;
+            letter-spacing: -1.5px;
+        }
+
+        .gender-nav {
+            display: flex;
+            gap: 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .gender-nav a {
+            padding: 5px 8px;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 480px;
+            margin: 0 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ff6000;
+            border-radius: 4px;
+            background-color: #fafafa;
+            outline: none;
+            font-size: 13px;
+            color: #999999;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333333;
+        }
+        
+        .user-actions span {
+            cursor: pointer;
+        }
+
+        .sub-nav-bar {
+            background-color: #ffffff;
+            border-top: 1px solid #f1f1f1;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .sub-nav-links {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            font-size: 13px;
+            font-weight: bold;
+            color: #222222;
+        }
+
+        .sub-nav-links a:hover {
+            color: #ff6000;
+        }
+
+        .brands-section {
+            background-color: #ff6000;
+            padding: 40px 0;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+
+        .brand-card {
+            background: #ffffff;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .brand-logo-svg {
+            width: 100%;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reviews-section {
+            background-color: #fdfdfd;
+            padding: 50px 0;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .reviews-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #222222;
+            margin-bottom: 25px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .review-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 13.5px;
+            color: #555555;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .review-author {
+            font-size: 12.5px;
+            font-weight: bold;
+            color: #222222;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .review-branch {
+            font-weight: normal;
+            color: #888888;
+            font-size: 11.5px;
+        }
+
+        .site-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e6e6e6;
+            padding: 40px 0 20px 0;
+            margin-top: auto;
+        }
+
+        .footer-header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff6000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-contacts {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444444;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-contacts span, .footer-contacts a, .modal-body-text a {
+            color: #ff6000;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .instagram-custom-icon {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            border-radius: 6px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+            margin-left: 20px;
+        }
+
+        .instagram-custom-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .instagram-custom-icon::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            border: 1.5px solid #ffffff;
+            border-radius: 4px;
+        }
+
+        .instagram-custom-icon::after {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            width: 4px;
+            height: 4px;
+            border: 1.5px solid #ffffff;
+            border-radius: 50%;
+        }
+
+        .instagram-dot {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 2px;
+            height: 2px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .address-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .address-box h3 {
+            font-size: 14px;
+            color: #333333;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .address-text {
+            font-size: 13px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .directions-btn {
+            display: inline-block;
+            background-color: #ff6000;
+            color: #ffffff;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            align-self: flex-start;
+            transition: background-color 0.2s;
+        }
+
+        .directions-btn:hover {
+            background-color: #e05300;
+        }
+
+        .copyright-bar {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e6e6e6;
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6000;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            background: none;
+            border: none;
+            color: #999999;
+            cursor: pointer;
+        }
+
+        .modal-close-btn:hover {
+            color: #333333;
+        }
+
+        .modal-body-text {
+            font-size: 14px;
+            color: #444444;
+            line-height: 1.6;
+        }
+
+        .day-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #eeeeee;
+        }
+
+        .day-row:last-of-type {
+            border-bottom: none;
+            margin-bottom: 15px;
+        }
+
+        .day-name {
+            font-weight: bold;
+            color: #555555;
+        }
+
+        .day-time {
+            color: #ff6000;
+            font-weight: bold;
+        }
+
+        .return-policy-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .return-policy-list li {
+            margin-bottom: 8px;
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-utility-bar">
+        <div class="container utility-content">
+            <span class="app-download construction-trigger">Mobil Uygulamayı <strong>Hemen İndir</strong></span>
+            <div class="utility-links">
+                <a class="construction-trigger">Kuponlarım</a>
+                <a class="construction-trigger">Sipariş Takibi</a>
+                <a id="easyReturnBtn">Kolay İade</a>
+                <a id="customerServiceBtn">Müşteri Hizmetleri</a>
+                <a href="https://instagram.com/dorekundura" target="_blank" class="instagram-custom-icon" title="Instagram Profilimiz">
+                    <div class="instagram-dot"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container header-grid">
+            <div class="logo-and-cats">
+                <div class="logo">DORE</div>
+                <nav class="gender-nav">
+                    <a class="construction-trigger">Kadın</a>
+                    <a class="construction-trigger">Erkek</a>
+                    <a class="construction-trigger">Çocuk</a>
+                </nav>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Aradığınız ürün, marka veya kategoriyi yazınız..." class="construction-trigger" readonly style="cursor: pointer;">
+            </div>
+
+            <div class="user-actions">
+                <div class="action-item"><span class="construction-trigger">Giriş Yap</span></div>
+                <div class="action-item"><span class="construction-trigger">Sepetim</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sub-nav-bar">
+        <div class="container sub-nav-links">
+            <a class="construction-trigger">Ayakkabı</a>
+            <a class="construction-trigger">Spor</a>
+            <a class="construction-trigger">Çanta ve Aksesuar</a>
+            <a class="construction-trigger">Lisanslı Ürünler</a>
+            <a class="construction-trigger">Markalar</a>
+            <a class="construction-trigger">Outlet</a>
+            <a class="construction-trigger">Tüm Kategoriler</a>
+        </div>
+    </div>
+
+    <section class="brands-section">
+        <div class="container">
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #d12026; font-size: 20px; font-weight: bold; font-style: italic; font-family: sans-serif;">KINETIX</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #222222; font-size: 15px; font-weight: 900; font-family: 'Courier New', Courier, monospace; border: 1.5px solid #222; padding: 2px 8px; letter-spacing: 1px;">LUMBERJACK</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #00a8e1; font-size: 20px; font-weight: bold; font-family: 'Comic Sans MS', sans-serif; letter-spacing: 1px;">FROZEN</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #e31b23; font-size: 16px; font-weight: 900; font-family: 'Impact', sans-serif; text-shadow: 1px 1px 0 #000; letter-spacing: 1px;">SPIDER-MAN</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #ca1f26; font-size: 22px; font-weight: bold; font-family: 'Times New Roman', serif; letter-spacing: 2px;">POLARIS</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #0f2042; font-size: 22px; font-weight: 900; font-family: sans-serif; letter-spacing: -0.5px;">LESCON</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #1a446c; font-size: 18px; font-weight: bold; font-family: serif; letter-spacing: 3px;">VOYAGER</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #e63946; font-size: 24px; font-weight: bold; font-family: 'Arial Black', sans-serif;">VICCO</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #2a9d8f; font-size: 20px; font-weight: bold; font-family: cursive;">PEPINO</div>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-logo-svg" style="color: #f4a261; font-size: 26px; font-weight: 900; font-style: italic; font-family: sans-serif; letter-spacing: -1px;">JUMP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-title">Müşteri Değerlendirmeleri</div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Çocuklar için Vicco ve Kinetix modellerini sürekli buradan alıyoruz. Çayırova şubesi çok ilgili, çeşit de bol oluyor."</p>
+                    <div class="review-author">Ahmet T. <span class="review-branch">Çayırova Şubesi</span></div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Gebze Yeniçarşı şubesinden klasik kundura aldım, derisi ve kalitesi çok güzel. Esnaflıkları ve ilgileri için teşekkürler."</p>
+                    <div class="review-author">Murat K. <span class="review-branch">Gebze Şubesi</span></div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Ürün çeşitliliği harika. Değişim süreciyle ilgili mağazaya gittiğimizde çok yardımcı oldular, kurumsal ve güvenilir bir işletme."</p>
+                    <div class="review-author">Selda Y. <span class="review-branch">Genel Ziyaretçi</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-header-area">
+                <div class="footer-title">Mağazalarımız ve İletişim</div>
+                <div class="footer-contacts">
+                    <span>E-posta: <a href="mailto:dorekundura@gmail.com">dorekundura@gmail.com</a></span>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="address-box">
+                    <h3>Dore Kundura Çayırova Şubesi</h3>
+                    <p class="address-text">Çayırova Mh. Fatih Cd. No: 124<br>Çayırova / Kocaeli</p>
+                    <a href="https://www.google.com/maps/dir//Dore+Kundura,+Yeni,+Fatih+Cd.+NO:+124,+41404+%C3%87ay%C4%B1rova%2FKocaeli/@40.8176007,29.3642596,16z/data=!4m9!4m8!1m0!1m5!1m1!1s0x14cadf1d559a77a9:0xa53d7ccfb4085c98!2m2!1d29.3715183!2d40.8208593!3e0?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="directions-btn">🚗 Yol Tarifi Al</a>
+                </div>
+                <div class="address-box">
+                    <h3>Dore Kundura Gebze Şubesi</h3>
+                    <p class="address-text">Hacıhalil Mh. İsmetpaşa Cd. No: 8 Yeniçarşı<br>Gebze / Kocaeli</p>
+                    <!-- GÜNCELLENEN KISIM: Gebze için verdiğiniz orijinal Google Haritalar yönlendirme linki entegre edilmiştir -->
+                    <a href="https://www.google.com/maps/dir//Hac%C4%B1halil+Mahallesi,+Dore+Kundura,+%C4%B0smet+Pa%C5%9Fa+Cd.+No:6,+41400+Gebze%2FKocaeli,+Turkey/@40.8208545,29.3689593,17z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x14cb20895e1201b3:0xd976dede49ef3f9b!2m2!1d29.4348505!2d40.7974323!3e0?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="directions-btn">🚗 Yol Tarifi Al</a>
+                </div>
+            </div>
+            <div class="copyright-bar">
+                © 2026 DORE KUNDURA Mağazacılık A.Ş. Tüm Hakları Saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modallar -->
+    <div class="modal-overlay" id="customModal">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-header-title">Dore Kundura Çalışma Saatleri</div>
+            <div class="modal-body-text">
+                <div class="day-row"><span class="day-name">Pazartesi</span><span class="day-time">09:00 - 20:00</span></div>
+                <div class="day-row"><span class="day-name">Salı</span><span class="day-time">09:00 - 20:00</span></div>
+                <div class="day-row"><span class="day-name">Çarşamba</span><span class="day-time">09:00 - 20:00</span></div>
+                <div class="day-row"><span class="day-name">Perşembe</span><span class="day-time">09:00 - 20:00</span></div>
+                <div class="day-row"><span class="day-name">Cuma</span><span class="day-time">09:00 - 20:00</span></div>
+                <div class="day-row"><span class="day-name">Cumartesi</span><span class="day-time">09:00 - 20:00</span></div>
+                <div class="day-row"><span class="day-name">Pazar</span><span class="day-time">11:00 - 20:00</span></div>
+                <p style="margin-top: 15px; margin-bottom: 10px;"><strong>E-posta Destek:</strong> <a href="mailto:dorekundura@gmail.com">dorekundura@gmail.com</a></p>
+                <p style="display: flex; align-items: center; gap: 8px;">
+                    <strong>Instagram:</strong> 
+                    <a href="https://instagram.com" target="_blank" class="instagram-custom-icon" title="Instagram Profilimiz" style="margin-left: 0; width: 22px; height: 22px;">
+                        <div class="instagram-dot" style="top: 5px; right: 5px; width: 2px; height: 2px;"></div>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="returnModal">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-header-title">İade ve Değişim Politikamız</div>
+            <div class="modal-body-text">
+                <p style="margin-bottom: 12px; font-weight: bold; color: #ff6000;">Değerli Müşterimiz,</p>
+                <p style="margin-bottom: 12px;">Dore Kundura güvencesiyle satın almış olduğunuz ürünlerde memnuniyetiniz bizim için önceliklidir. İade ve değişim süreçlerimiz hakkındaki kurumsal politikamız alkali bilgilerine sunulmuştur:</p>
+                <ul class="return-policy-list">
+                    <li>Satın alma tarihinden itibaren <strong>15 gün</strong> içerisinde iade veya değişim başvurusunda bulunabilirsiniz.</li>
+                    <li>İşleme alınacak ürünlerin <strong>kullanılmamış (giyilmemiş)</strong> ve orijinal ambalaj bütünlüğünü koruyor olması yasal bir zorunluluktur.</li>
+                    <li>Değişim ve iade işlemlerinizi, ilgili ürüne ait <strong>fatura veya satış fişi</strong> ile birlikte mağazalarımızdan hızlıca gerçekleştirebilirsiniz.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="constructionModal">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-header-title">Bilgilendirme</div>
+            <div class="modal-body-text" style="text-align: center; padding: 15px 0;">
+                <p style="font-weight: bold; color: #ff6000; font-size: 16px; margin-bottom: 12px;">Web Sitemiz Yenileniyor</p>
+                <p style="color: #555555; line-height: 1.6;">
+                    Değerli ziyaretçimiz, dijital altyapı çalışmalarımız ve online entegrasyon süreçlerimiz devam etmektedir. İlgili modül şu anda yapım aşamasındadır.
+                </p>
+                <p style="color: #555555; line-height: 1.6; margin-top: 10px;">
+                    Sizlere fiziksel mağazalarımızda kesintisiz hizmet vermeyi sürdürüyoruz. Tüm soru ve talepleriniz için <a href="mailto:dorekundura@gmail.com" style="color: #ff6000; font-weight: bold; text-decoration: underline;">dorekundura@gmail.com</a> adresinden bizlere ulaşabilirsiniz.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openCustomerBtn = document.getElementById('customerServiceBtn');
+        const customerModal = document.getElementById('customModal');
+        const openReturnBtn = document.getElementById('easyReturnBtn');
+        const returnModal = document.getElementById('returnModal');
+        const constructionModal = document.getElementById('constructionModal');
+        const constructionTriggers = document.querySelectorAll('.construction-trigger');
+
+        openCustomerBtn.addEventListener('click', () => {
+            customerModal.classList.add('active');
+        });
+
+        openReturnBtn.addEventListener('click', () => {
+            returnModal.classList.add('active');
+        });
+
+        constructionTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                constructionModal.classList.add('active');
+            });
+        });
+
+        const allModals = document.querySelectorAll('.modal-overlay');
+        const allCloseBtns = document.querySelectorAll('.modal-close-btn');
+
+        allCloseBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                allModals.forEach(modal => modal.classList.remove('active'));
+            });
+        });
+
+        allModals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
